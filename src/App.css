@@ -30,3 +30,69 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fbc2eb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1))
+  }
+
+  h3 {
+    font-family: "Times New Roman", Times, serif;
+    color: rgb(184, 215, 220); /* Initial color of the text */
+    transition: color 0.3s; /* Smooth transition effect for color change */
+  }
+
+  /* Define a CSS rule to change the color of h3 elements on hover */
+  h3:hover {
+    color: rgba(255, 0, 221, 0.873); /* New color on hover */
+  }
+   /* Define a CSS rule to set initial styles for the video container */
+   .ratio {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100%) */
+    overflow: hidden;
+    transition: transform 0.3s; /* Smooth transition effect for scaling */
+  }
+
+  /* Define a CSS rule to scale the video container on hover */
+  .ratio:hover {
+    transform: scale(1.05); /* Scale up by 5% on hover */
+  }
+
+  /* Define a CSS rule to style the iframe within the video container */
+  .ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+ /* Hide default bullet point for list items */
+ ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Define styles for the container */
+.container {
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically */
+}
+   /* Define styles for the SVG icon */
+   .icon {
+    width: 30px; /* Adjust width and height as needed */
+    height: 30px;
+    fill: #007bff; /* Fill color of the icon */
+    margin-right: 10px; /* Add some space between the icon and text */
+  }
+    /* Define styles for the heading */
+    h5 {
+      margin: 0; /* Remove default margin */
+    }

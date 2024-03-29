@@ -107,17 +107,17 @@ const BlogPostsList = () => {
         >
           Remove All
         </button>
-        {/* <Link to={"/addcomment"} className="nav-link">
+        <Link to={"/addcomment"} className="nav-link">
               Add
-            </Link> */}
+            </Link> 
         
-        {/* <button
+         <button
           className="m-3 btn btn-sm btn-danger"
           onClick={removeAllBlogPosts}
         >
           Add Comment
           
-        </button> */}
+        </button>
       </div>
       <div className="col-md-6">
         {currentBlogPost ? (

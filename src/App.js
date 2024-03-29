@@ -24,6 +24,11 @@ import BoardAdmin from "./components/BoardAdmin";
 
 // import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
+import {
+  MDBNavbar,
+  MDBBtn,
+  MDBContainer
+} from 'mdb-react-ui-kit';
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -57,111 +62,131 @@ const App = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <Link to={"/"} className="navbar-brand">
-          Social Media
-        </Link>
-        <div className="navbar-nav mr-auto">
+<nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: 'var(--custom-primary-color)' }}>
+    <Link to={"/"} className="navbar-brand">
+    {/* <MDBBtn outline color="primary" className='me-2' type='button'>
+    SocialMediaBlogger
+        </MDBBtn> */}
+   
+   <div class="container">
+   
+    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2 15h-4v-1.59c0-.81.66-1.47 1.47-1.47h1.06c.81 0 1.47.66 1.47 1.47V17zm2.99-6.75c-.01.81-.66 1.47-1.47 1.47h-3.04c-.48-1.28-1.68-2.24-3.07-2.38-1.58-.16-2.94.97-3.44 2.38H5.48c-.81 0-1.47-.66-1.47-1.47v-3.72c0-.81.66-1.47 1.47-1.47H7V7c0-.41.34-.75.75-.75h8.5c.41 0 .75.34.75.75v2.26h1.52c.81 0 1.47.66 1.47 1.47v3.72z"/>
+    </svg>
+    
+    <h5>SocialMediaBlogger</h5>
+  </div>
+    </Link>
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav mr-auto">
+         <li className="nav-item">
+          <Link to={"/home"} className="nav-link">
+            Home
+          </Link>
+        </li>
+
+        {showModeratorBoard && (
           <li className="nav-item">
-            <Link to={"/home"} className="nav-link">
-              Home
+            <Link to={"/mod"} className="nav-link">
+              Moderator Board
             </Link>
           </li>
+        )}
 
-          {showModeratorBoard && (
-            <li className="nav-item">
-              <Link to={"/mod"} className="nav-link">
-                Moderator Board
-              </Link>
-            </li>
-          )}
-
-          {showAdminBoard && (
-            <li className="nav-item">
-              <Link to={"/admin"} className="nav-link">
-                Admin Board
-              </Link>
-            </li>
-          )}
-
-          {currentUser && (
-            <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
-                User
-              </Link>
-            </li>
-          )}
-          
-          {currentUser && (
-           <li className="nav-item">
-            <Link to={"/blogposts"} className="nav-link">
-              BlogPosts
+        {showAdminBoard && (
+          <li className="nav-item">
+            <Link to={"/admin"} className="nav-link">
+              Admin Board
             </Link>
-          </li> 
-          )}
-             
+          </li>
+        )} 
+
+         {currentUser && (
+          <li className="nav-item">
+            <Link to={"/user"} className="nav-link">
+              User
+            </Link>
+          </li>
+        )} 
+
+        {currentUser && (
+          <li className="nav-item">
+            <Link to={"/blogposts"} className="nav-link">
+             <h3>BlogPosts</h3> 
+             {/* <MDBBtn outline color="success" className='me-2' type='button'>
+             BlogPosts
+        </MDBBtn> */}
+            </Link>
+          </li>
+        )}
+
         {currentUser && (
           <li className="nav-item">
             <Link to={"/add"} className="nav-link">
-              Add
+              <h3>Add</h3>
             </Link>
           </li>
-            )}
-       
+        )}
 
         {currentUser && (
-           <li className="nav-item">
-            <Link to={"/comments"} className="nav-link">
-              Comments
-            </Link>
-          </li> 
-          )}
-             
-        {/* {currentUser && (
           <li className="nav-item">
-            <Link to={"/addcomment"} className="nav-link">
-              Add
+            <Link to={"/comments"} className="nav-link">
+             <h3>Comments</h3> 
             </Link>
           </li>
-            )} */}
-        </div>
-
-
-        {currentUser ? (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/profile"} className="nav-link">
-                {currentUser.username}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
-                LogOut
-              </a>
-            </li>
-          </div>
-        ) : (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/login"} className="nav-link">
-                Login
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/register"} className="nav-link">
-                Sign Up
-              </Link>
-            </li>
-          </div>
         )}
-      </nav>
+        
+      </ul>
+
+      {currentUser ? (
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link to={"/profile"} className="nav-link">
+             <h3>Welcome {currentUser.username}</h3> 
+            </Link>
+          </li>
+          <li className="nav-item">
+            <a href="/login" className="nav-link" onClick={logOut}>
+              <h3>LogOut</h3>
+            </a>
+          </li>
+        </ul>
+      ) : (
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link to={"/login"} className="nav-link">
+              Login
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to={"/register"} className="nav-link">
+              Sign Up
+            </Link>
+          </li>
+        </ul>
+      )}
+    </div>
+  </nav>
 
       <div className="container mt-3">
         <Routes>
           {/* <Route exact path={"/"} element={<Home />} /> */}
-                    <Route path="/" element={<BlogPostsList/>} />
-          <Route exact path={"/home"} element={<Home />} />
+                    {/* <Route path="/" element={<BlogPostsList/>} /> */}
+          {/* <Route exact path={"/home"} element={<Home />} /> */}
+          <Route exact path={"/"} element={<Home />} />
+
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/profile" element={<Profile />} />
